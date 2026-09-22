@@ -1,11 +1,31 @@
 # Agent World
 
-A local voxel world and mixed-model control room for Claude Code and Codex. Sessions are
-villagers, decisions summon Endermen, broker messages travel along redstone, and independently
-accepted tasks leave buildings behind.
+**Give your coding agents a world to build.**
 
-This is a standalone local application with a companion Claude Code plugin. It does not
-require the Claude artifact host, a cloud account, or any session data in this repository.
+Agent World turns Claude Code and Codex sessions into villagers in a Minecraft-inspired
+voxel settlement. Follow redstone trails between agents, spot Endermen when a decision
+needs you, and watch tasks grow from foundations into workshops. Completed work leaves
+a lasting mark on the map.
+
+![The Agent World demo settlement, with agent villagers, biomes, redstone links, and the session watchlist](docs/media/world-overview.png)
+
+*The demo world uses fictional sessions and tasks.*
+
+Explore the settlement, inspect a villager, and open its terminal without leaving the
+world. The task board tracks each build; the blueprint district records its history and
+can export the displayed revision as a Minecraft Java schematic. For larger projects,
+the local control room coordinates Claude and Codex workers, tests, reviews, and gates
+before a build is accepted.
+
+| Explore the agent world | Watch a build take shape |
+| --- | --- |
+| ![Camera orbit around the fictional agent settlement](docs/media/world-orbit.gif) | ![Fictional construction sites progressing from foundations to completed buildings](docs/media/construction-progress.gif) |
+
+![Completed fictional builds and the blueprint history panel](docs/media/construction-blueprint.png)
+
+Agent World runs locally as a standalone app with a companion Claude Code plugin. The
+demo needs no signed-in coding CLI; real sessions use your installed Claude Code or
+Codex CLI. No cloud account or session data in this repository is required.
 
 ## Run from source
 
