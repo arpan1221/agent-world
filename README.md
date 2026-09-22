@@ -1,27 +1,54 @@
 # Agent World
 
-**Give your coding agents a world to build.**
+**A local SDLC harness for coding agents, made visible as a Minecraft-inspired world.**
 
-Agent World turns Claude Code and Codex sessions into villagers in a Minecraft-inspired
-voxel settlement. Follow redstone trails between agents, spot Endermen when a decision
-needs you, and watch tasks grow from foundations into workshops. Completed work leaves
-a lasting mark on the map.
+Multi-agent builds scatter decisions across terminals and make it hard to tell whether
+"done" means submitted, tested, reviewed, or accepted. Agent World puts the work in one
+local control room: plan assignments, launch Claude Code and Codex workers, inspect their
+sessions, route scoped messages, and track the evidence required to accept a build.
+
+The voxel settlement is the live interface to that process. Each villager is a session
+you can inspect and open in an embedded terminal. Redstone traces broker messages;
+Endermen mark decisions that need you. Tasks grow from foundations into workshops, and
+recorded milestones remain in the world after a session ends.
 
 ![The Agent World demo settlement, with agent villagers, biomes, redstone links, and the session watchlist](docs/media/world-overview.png)
 
 *The demo world uses fictional sessions and tasks.*
 
-Explore the settlement, inspect a villager, and open its terminal without leaving the
-world. The task board tracks each build; the blueprint district records its history and
-can export the displayed revision as a Minecraft Java schematic. For larger projects,
-the local control room coordinates Claude and Codex workers, tests, reviews, and gates
-before a build is accepted.
+### Click a villager, open the work
 
-| Explore the agent world | Watch a build take shape |
-| --- | --- |
-| ![Camera orbit around the fictional agent settlement](docs/media/world-orbit.gif) | ![Fictional construction sites progressing from foundations to completed buildings](docs/media/construction-progress.gif) |
+Select a villager to see its status and task, then choose **Open terminal** to work in
+the app's terminal desk. App-owned terminals reconnect in place.
 
-![Completed fictional builds and the blueprint history panel](docs/media/construction-blueprint.png)
+![Clicking a villager, inspecting its session, and opening the embedded terminal](docs/media/villager-to-terminal.gif)
+
+*This capture follows the real UI and terminal connection path with fictional session
+data and terminal output; no model was launched for the recording.*
+
+[View the terminal desk at full size](docs/media/terminal-deck.png).
+
+### A build needs proof
+
+The **ORCHESTRATE** control room assigns requirements, architecture, implementation,
+testing, review, and council work across models. Dependencies determine which workers
+are ready to launch. A builder's submission is a claim: acceptance requires an
+independent different-model tester and reviewer, a user-confirmed deterministic gate,
+and five council lenses covering assumptions, completeness, data truth, silent
+failure, and spec fidelity. The audit and task history stay available for inspection.
+
+![A sample mixed-model SDLC run showing the worker roster, dependencies, gate, and council lenses](docs/media/sdlc-control-room.png)
+
+*Illustrative draft run; the screenshot does not show a passed gate or launched workers.*
+
+### Alongside `swarm-build`
+
+The separate `swarm-build` skill adds a per-subtask workflow: developer, independent
+unit-tester, CodeRabbit review, adversarial council, and live browser proof, with
+retries and human escalation when a claim does not hold up. Agent World can be the
+local control room for workers launched or connected through the app, with scoped
+messages, terminals, gates, and recorded verdicts. The skill is external to this
+repository and is invoked separately; Agent World does not run it automatically.
 
 Agent World runs locally as a standalone app with a companion Claude Code plugin. The
 demo needs no signed-in coding CLI; real sessions use your installed Claude Code or
@@ -45,7 +72,6 @@ then browser session storage. The server listens only on 127.0.0.1.
 `--port`, `--state-dir`, and `--claude-dir` are configurable. Nothing assumes a particular
 username, project checkout, session ID or neighboring repository. `--demo` uses fictional
 data and its own temporary state directory; it never launches Claude or reads ~/.claude.
-This package has not been published to npm or GitHub yet.
 
 ## Working in the world
 
@@ -67,6 +93,8 @@ This package has not been published to npm or GitHub yet.
 
 The original BROWSE/WATCH, search, hotbar, drawer, redstone graph, and context inventory
 remain available. Context can be sent only to a terminal explicitly opened in this app.
+
+![Camera orbit around the fictional agent settlement](docs/media/world-orbit.gif)
 
 ## Mixed-model SDLC orchestration
 
@@ -129,6 +157,10 @@ In demo mode, use **ADVANCE DEMO** four times to watch a fictional eight-compone
 from foundations to scaffolds, submission and completion. This does not launch model sessions.
 Replay covers the construction district; the session list and terminal controls continue to
 show live state.
+
+![Fictional construction sites progressing from foundations to completed buildings](docs/media/construction-progress.gif)
+
+![Completed fictional builds and the blueprint history panel](docs/media/construction-blueprint.png)
 
 ## Codebase mapping
 
