@@ -1,0 +1,12 @@
+{
+  "description": "Local, non-blocking event forwarding. No prompt content or tool output is retained.",
+  "hooks": {
+    "SessionStart": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "SessionEnd": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "Notification": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "Stop": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "PostToolUse": [{"matcher": "TaskCreate|TaskUpdate", "hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}],
+    "PostToolUseFailure": [{"hooks": [{"type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/forward.mjs\"", "timeout": 3}]}]
+  }
+}

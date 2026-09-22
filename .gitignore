@@ -1,0 +1,17 @@
+node_modules/
+.state/
+*.log
+*.tgz
+.DS_Store
+world.json
+world.build.html
+enrich-cache.json
+excerpts/
+queue/
+.env*
+
+# Local-only working material kept out of the public tree.
+# Session digests and internal design notes may reference private/proprietary
+# context; they are intentionally not part of the open-source distribution.
+.migration/
+notes/

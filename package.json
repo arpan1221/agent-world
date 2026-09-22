@@ -1,0 +1,17 @@
+{
+  "name": "agent-world-app",
+  "version": "0.6.0",
+  "description": "A local voxel world and verified, provider-agnostic orchestration control room for coding-agent CLI sessions (Claude Code, Codex, and more).",
+  "keywords": ["agents", "orchestration", "claude-code", "codex", "cli", "multi-agent", "voxel", "observability", "llm", "mcp"],
+  "type": "module",
+  "license": "MIT",
+  "author": "Arpan Nookala",
+  "repository": {"type": "git", "url": "git+https://github.com/arpan1221/agent-world.git"},
+  "homepage": "https://github.com/arpan1221/agent-world#readme",
+  "bugs": {"url": "https://github.com/arpan1221/agent-world/issues"},
+  "bin": {"agent-world": "bin/agent-world.mjs"},
+  "files": ["bin", "src", "public", "assets", "plugin", "vendor", "scripts", "examples", "test", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "scripts": {"start": "node bin/agent-world.mjs", "demo": "node bin/agent-world.mjs --demo", "test": "node --test test/*.test.mjs", "test:paired": "node --test test/paired.test.mjs test/workspaces.test.mjs test/develop-base.test.mjs test/docker-stack.test.mjs", "setup:paired": "node scripts/paired-fixture.mjs", "test:docker": "node scripts/docker-smoke.mjs"},
+  "engines": {"node": ">=22"},
+  "dependencies": {"three": "0.128.0", "@xterm/xterm": "6.0.0", "@xterm/addon-fit": "0.11.0", "ws": "8.21.3", "node-pty": "1.1.0"}
+}

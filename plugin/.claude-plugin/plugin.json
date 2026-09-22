@@ -1,0 +1,7 @@
+{
+  "name": "agent-world",
+  "version": "0.5.0",
+  "description": "Local session notifications and scoped Claude/Codex orchestration with paired worktree dispatch and evidence submission.",
+  "author": {"name": "Arpan Nookala"},
+  "license": "MIT"
+}
